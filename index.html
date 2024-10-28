@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Best Favour</title>
+    
+    <!-- Preconnect to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Google Fonts -->
+    <!-- Removed Bebas Neue from Google Fonts since it's loaded locally -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> 
+    
+    <!-- Link to CSS -->
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body class="home">
+    <!-- Background Image Element -->
+    <div class="background-image"></div>
+
+    <!-- Header Section -->
+    <header class="hero">
+        <nav class="navbar">
+            <div class="logo">Best Favour</div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about_us.html">About Us</a></li>
+                <li><a href="t&c.html">Terms & Conditions</a></li>
+                <li><a href="privacy_policy.html">Privacy Policy</a></li>
+                <li><a href="contact_us.html">Contact Us</a></li>
+            </ul>
+            <div class="cta-buttons">
+                <a href="login.html" class="btn primary">Find a Professional</a>
+                <a href="apply.html" class="btn secondary">I’m a Professional</a>
+            </div>
+        </nav>
+        
+        <!-- Slideshow Container -->
+        <div class="slideshow-container">
+            <div class="mySlides active">
+                <img src="images/image21.png" alt="Hero Image 1">
+            </div>
+            <div class="mySlides">
+                <img src="images/image22.png" alt="Hero Image 2">
+            </div>
+            <div class="mySlides">
+                <img src="images/image23.jpg" alt="Hero Image 3">
+            </div>
+            <div class="mySlides">
+                <img src="images/image31.png" alt="Hero Image 4">
+            </div>
+            
+            <!-- Navigation Dots -->
+            <div class="dot-container">
+                <span class="dot active" data-slide="0"></span>
+                <span class="dot" data-slide="1"></span>
+                <span class="dot" data-slide="2"></span>
+                <span class="dot" data-slide="3"></span>
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <h1>Find Reliable Help, Anytime, Anywhere.</h1>
+            <p>Connecting you with trusted professionals for any task—quickly and easily.</p>
+            <a href="services.html" class="btn primary">Get Started</a> <!-- Get Started Button -->
+        </div>
+    </header>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <h2>Our Services</h2>
+        <div class="service-cards">
+            <div class="service-card">
+                <a href="services.html#home-cleaning">
+                    <img src="images/service_cleaning.png" alt="Home Cleaning Service">
+                    <h3>Home Cleaning</h3>
+                    <p>Get your home sparkling clean with our trusted cleaning professionals.</p>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="services.html#plumbing">
+                    <img src="images/service_plumbing.png" alt="Plumbing Service">
+                    <h3>Plumbing</h3>
+                    <p>Quick and reliable plumbing solutions from experienced plumbers.</p>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="services.html#electrical">
+                    <img src="images/service_electrical.png" alt="Electrical Service">
+                    <h3>Electrical</h3>
+                    <p>Expert electricians ready to assist with all your electrical needs.</p>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="services.html#tutoring">
+                    <img src="images/service_tutoring.jpg" alt="Tutoring Service">
+                    <h3>Tutoring</h3>
+                    <p>Find qualified tutors to help you achieve your educational goals.</p>
+                </a>
+            </div>
+            <div class="service-card">
+                <a href="services.html#many-more">
+                    <img src="images/service_handyman.png" alt="Many More">
+                    <h3>Many More</h3>
+                    <p>More services coming soon!</p>
+                </a>
+            </div>
+        </div>
+        <a href="services.html" class="btn primary">Explore All</a> <!-- Explore All Button -->
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <h2>How It Works</h2>
+        <div class="steps">
+            <div class="step">
+                <img src="assets/icons/describe.svg" alt="Describe Your Task">
+                <h3>Describe Your Task</h3>
+                <p>Explain what you need help with.</p>
+            </div>
+            <div class="step">
+                <img src="assets/icons/choose.svg" alt="Choose a Professional">
+                <h3>Choose a Professional</h3>
+                <p>Browse verified professionals near you.</p>
+            </div>
+            <div class="step">
+                <img src="assets/icons/get-it-done.svg" alt="Get It Done">
+                <h3>Get It Done</h3>
+                <p>Sit back and relax while the job gets done.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="social-media">
+            <a href="#"><img src="assets/icons/TikTok.svg" alt="TikTok"></a>
+            <a href="#"><img src="assets/icons/twitter.svg" alt="Twitter"></a>
+            <a href="#"><img src="assets/icons/instagram.svg" alt="Instagram"></a>
+        </div>
+        <p>&copy; 2024 Best Favour. All rights reserved.</p>
+    </footer>
+
+    <!-- Link to JavaScript Files -->
+    <script src="scripts/slideshow.js"></script>
+    <script src="scripts/scroll.js"></script>
+</body>
+</html>

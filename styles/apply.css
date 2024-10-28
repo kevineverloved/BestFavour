@@ -1,0 +1,418 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+    background: url('/mnt/data/service_painting.jpg') no-repeat center center fixed;
+    background-size: cover;
+    position: relative;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Distribute space between logo and nav links */
+    align-items: center;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 2rem;
+    color: #007BFF;
+    font-weight: 700;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    margin-left: 20px; /* Adjust this value to move links closer to the left */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #007BFF;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+/* Form Container */
+.form-container {
+    display: flex;
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center;
+    padding: 100px 20px 40px; /* Increased top padding to account for navbar */
+    gap: 20px;
+}
+
+.form-island {
+    background-color: #fff;
+    padding: 30px 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 600px; /* Optimized width for better readability */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Add gap between input groups */
+}
+
+.form-island h2 {
+    margin-bottom: 10px;
+    color: #000;
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column; /* Stack label above input */
+    margin-bottom: 1rem;
+}
+
+.input-group label {
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.input-group input,
+.input-group select {
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 1rem;
+    width: 100%;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-top: 5px;
+}
+
+.horizontal {
+    flex-direction: row;
+}
+
+.vertical {
+    flex-direction: row; /* Align checkboxes in a row */
+    flex-wrap: wrap; /* Allow wrapping if needed */
+    gap: 10px; /* Add space between checkboxes */
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+}
+
+.checkbox-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.error-msg {
+    color: #d9534f;
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.grey-description {
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.btn {
+    padding: 10px 25px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn.primary {
+    background-color: #007BFF;
+    color: #fff;
+}
+
+.btn.primary:hover {
+    background-color: #0056b3;
+}
+
+.btn.secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn.secondary:hover {
+    background-color: #5a6268;
+}
+
+.btn:disabled {
+    background-color: #ccc;
+    color: #666;
+    cursor: not-allowed;
+}
+
+.input-group input[type="file"] {
+    padding: 5px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #fff;
+    color: #333;
+}
+
+.tooltip {
+    display: inline-block;
+    margin-left: 5px;
+    background-color: #007BFF;
+    color: #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    cursor: pointer;
+    position: relative;
+}
+
+.tooltip::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 5px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s;
+    z-index: 1;
+    font-size: 0.85rem;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.background-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .nav-links li a {
+        padding: 10px 0;
+        width: 100%;
+    }
+
+    .form-island {
+        padding: 20px;
+        max-width: 100%;
+    }
+
+    .actions {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .checkbox-group.horizontal {
+        flex-direction: column;
+        gap: 5px;
+    }
+}
+
+/* Highlight invalid inputs */
+input.invalid, select.invalid {
+    border-color: #d9534f;
+    background-color: #f8d7da;
+}
+
+/* Show error messages */
+.error-msg {
+    display: none;
+}
+
+input.invalid + .error-msg,
+select.invalid + .error-msg {
+    display: block;
+}
+
+/* Adjust tooltip z-index for better visibility */
+.tooltip::after {
+    z-index: 10;
+}
+
+.profile-photo {
+    width: 150px; /* Increased width */
+    height: 150px; /* Increased height */
+    border-radius: 50%; /* Keep the image circular */
+    object-fit: cover; /* Ensure the image covers the circle */
+    display: block;
+    margin: 0 auto 20px; /* Center the image and add bottom margin */
+}
+
+#reviewContent {
+    text-align: left; /* Align text to the left for readability */
+    padding: 20px; /* Add padding for spacing */
+    line-height: 1.5; /* Improve line spacing */
+}
+
+#reviewContent p {
+    margin-bottom: 10px; /* Add space between paragraphs */
+    font-size: 1rem; /* Set a consistent font size */
+    color: #333; /* Use a consistent text color */
+}
+
+#reviewContent strong {
+    font-weight: 700; /* Make labels bold for emphasis */
+    color: #007BFF; /* Use a color to highlight labels */
+}
+
+#reviewSection {
+    width: 80%; /* Increase the width for a landscape layout */
+    max-width: 900px; /* Set a maximum width */
+    height: auto; /* Allow height to adjust based on content */
+    margin: 0 auto; /* Center the section horizontally */
+    padding: 30px; /* Add padding for spacing */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+    border-radius: 10px; /* Keep rounded corners */
+    background-color: #fff; /* Ensure a white background */
+}
+
+/* Add these new styles for the photo guide section */
+.photo-guide {
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #f8f9fa;
+    border-radius: 5px;
+    border: 1px solid #dee2e6;
+}
+
+.photo-guide h4 {
+    font-size: 0.95rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.guide-images {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.guide-image {
+    text-align: center;
+}
+
+.guide-image img {
+    width: 120px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+
+.guide-image p {
+    font-size: 0.9rem;
+    color: #28a745;
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .guide-images {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .guide-image img {
+        width: 100px;
+        height: 133px;
+    }
+}
+
+/* Add these styles for ID example specifically */
+.photo-guide .guide-image img.id-example {
+    width: 400px; /* Increase width for landscape */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the whole ID is visible */
+}
+
+@media (max-width: 768px) {
+    .photo-guide .guide-image img.id-example {
+        width: 320px; /* Adjust width for smaller screens */
+        height: auto; /* Maintain aspect ratio */
+    }
+}

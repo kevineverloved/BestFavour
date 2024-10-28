@@ -1,0 +1,397 @@
+/* Reset & Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7f6;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #fff;
+    color: #333;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .logo {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #007bff; /* Logo color */
+}
+
+.navbar .nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar .nav-links li a {
+    color: #333;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-links li a:hover {
+    color: #007bff;
+}
+
+.navbar .cta-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.navbar .btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.navbar .btn.primary {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.navbar .btn.primary:hover {
+    background-color: #0056b3;
+}
+
+/* Container */
+.container {
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    max-width: 700px;
+    width: 100%;
+    margin: 100px auto; /* Offset for fixed navbar */
+    position: relative;
+}
+
+/* Progress Indicator */
+.progress-indicator {
+    margin-bottom: 30px;
+}
+
+.progress-bar {
+    background-color: #e0e0e0;
+    border-radius: 50px;
+    overflow: hidden;
+    height: 10px;
+    width: 100%;
+}
+
+.progress {
+    background-color: #007bff;
+    height: 100%;
+    width: 0%;
+    transition: width 0.4s ease;
+}
+
+.progress-text {
+    text-align: right;
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+/* Back Button */
+.back-button {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.back-button .arrow-circle {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 35px;
+    height: 35px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.back-button .arrow-circle:hover {
+    background-color: #0056b3;
+}
+
+.back-button i {
+    font-size: 1.2em;
+}
+
+/* Form Header */
+.form-header {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.form-header h1 {
+    font-size: 2em;
+    color: #007bff;
+}
+
+.form-header p {
+    color: #555;
+    font-size: 1em;
+}
+
+/* Form Sections */
+.form-section {
+    border: none;
+    margin-bottom: 20px;
+}
+
+.form-section legend {
+    font-size: 1.5em;
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+    color: #333;
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Button Groups */
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.btn.prev {
+    background-color: #6c757d;
+}
+
+.btn.prev:hover {
+    background-color: #5a6268;
+}
+
+.btn.submit {
+    background-color: #28a745;
+}
+
+.btn.submit:hover {
+    background-color: #218838;
+}
+
+.btn i {
+    margin-left: 8px;
+}
+
+.btn.prev i {
+    margin-left: 0;
+    margin-right: 8px;
+}
+
+/* Tooltip */
+.tooltip {
+    position: relative;
+    cursor: help;
+    color: #888;
+}
+
+.tooltip::after {
+    content: attr(title);
+    position: absolute;
+    bottom: 125%; /* Position above the element */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    font-size: 0.8em;
+    z-index: 10;
+}
+
+.tooltip:hover::after {
+    opacity: 1;
+}
+
+/* Submit Button */
+.btn.submit {
+    width: 100%;
+    justify-content: center;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .button-group {
+        flex-direction: column;
+    }
+
+    .button-group .btn {
+        width: 100%;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+
+    .button-group .btn:last-child {
+        margin-bottom: 0;
+    }
+
+    .progress-text {
+        text-align: center;
+    }
+
+    .back-button {
+        position: static;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+}
+
+/* Back Button at the Top Left of the Page */
+.back-button-page {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    margin-top: 10px;
+}
+
+.back-button-page .arrow-circle {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #007bff;
+    color: #fff;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.back-button-page .arrow-circle:hover {
+    background-color: #0056b3;
+}
+
+/* Back Button at the Top Left of the Questionnaire Section */
+.back-button-section {
+    margin-bottom: 20px;
+}
+
+.back-button-section .arrow-circle {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    background-color: #6c757d;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.back-button-section .arrow-circle:hover {
+    background-color: #5a6268;
+}
+
+/* Button Group for Questionnaire Section */
+.button-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.button-group .btn {
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+}
+
+.button-group .btn.prev {
+    background-color: #6c757d;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.button-group .btn.prev:hover {
+    background-color: #5a6268;
+}
+
+.button-group .btn.next {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.button-group .btn.next:hover {
+    background-color: #0056b3;
+}

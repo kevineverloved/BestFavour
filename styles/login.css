@@ -1,0 +1,215 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    position: relative;
+}
+
+/* Background Image with Overlay */
+.background-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.5); /* Darker black fade effect for readability */
+    z-index: -2;
+    opacity: 0.9;
+}
+
+.background-image::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Semi-transparent black overlay */
+    z-index: -1;
+}
+
+/* Back Button - Top Left of Webpage */
+.back-button {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
+.arrow-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background-color: #007BFF;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+.arrow-circle span {
+    color: white;
+    font-size: 20px;
+}
+
+.arrow-circle:hover {
+    background-color: #0056b3;
+}
+
+/* Login Container */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.login-box {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 400px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.6s forwards;
+}
+
+h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+    color: #333;
+}
+
+.blue-text {
+    color: #007BFF;
+}
+
+.input-group {
+    margin-bottom: 1rem;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 0.9rem;
+    color: #000;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+.input-group button {
+    background: none;
+    border: none;
+    color: #007BFF;
+    font-size: 0.9rem;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    text-align: right;
+}
+
+.actions {
+    margin-top: 1.5rem;
+    display: flex;
+    justify-content: center;
+}
+
+.btn {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn img {
+    margin-right: 0.5rem;
+    height: 20px;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+.social-login {
+    margin-top: 1.5rem;
+}
+
+.social-login .btn {
+    width: 100%;
+    margin-top: 0.5rem;
+}
+
+.btn.google {
+    background-color: #db4437;
+}
+
+.btn.apple {
+    background-color: #000;
+}
+
+.extra-links {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
+
+.extra-links a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.extra-links a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .login-box {
+        width: 90%;
+        padding: 1.5rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .btn {
+        padding: 0.6rem 1rem;
+    }
+}
+
+/* Fade In Animation */
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

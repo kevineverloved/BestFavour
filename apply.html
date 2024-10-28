@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Best Favour - Service Provider Registration</title>
+    <link rel="stylesheet" href="styles/apply.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Best Favour</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about_us.html">About Us</a></li>
+            <li><a href="t&c.html">Terms & Conditions</a></li>
+            <li><a href="privacy_policy.html">Privacy Policy</a></li>
+            <li><a href="contact_us.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <!-- Background section with overlay -->
+    <div class="background-image" role="img" aria-label="Blurry background image" style="background-image: url('images/login-image.png');"></div>
+
+    <main class="form-container">
+        <!-- Basic Information Section -->
+        <section class="form-island" id="basicInfoSection">
+            <h2>Basic Information</h2>
+            <form id="registrationForm" aria-label="Service Provider Registration Form">
+                <!-- First Name -->
+                <div class="input-group">
+                    <label for="firstName">What is your first name?
+                        <span class="tooltip" data-tooltip="Enter your first name as it appears on official documents.">?</span>
+                    </label>
+                    <input type="text" id="firstName" name="firstName" placeholder="John" required>
+                </div>
+
+                <!-- Surname -->
+                <div class="input-group">
+                    <label for="surname">What is your surname?
+                        <span class="tooltip" data-tooltip="Enter your surname as it appears on official documents.">?</span>
+                    </label>
+                    <input type="text" id="surname" name="surname" placeholder="Doe" required>
+                </div>
+
+                <!-- Age Check -->
+                <div class="input-group">
+                    <label>Are you older than 16?</label>
+                    <div class="checkbox-group horizontal">
+                        <label>
+                            <input type="radio" name="olderThan16" value="yes" required> Yes
+                        </label>
+                        <label>
+                            <input type="radio" name="olderThan16" value="no"> No
+                        </label>
+                    </div>
+                    <div class="error-msg" id="ageError">You are not eligible to be a service provider because you are too young.</div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="input-group">
+                    <label for="phoneNumber">What is your mobile phone number?</label>
+                    <input type="tel" id="phoneNumber" name="phoneNumber" placeholder="+27 81 407 1549" required pattern="\+27[0-9]{9}">
+                    <div class="error-msg">South African phone numbers start with +27 and have 9 digits.</div>
+                </div>
+
+                <!-- Residential Information -->
+                <div class="input-group">
+                    <label for="province">Province</label>
+                    <select id="province" name="province" required>
+                        <option value="">-- Select a Province --</option>
+                        <option value="Eastern Cape">Eastern Cape</option>
+                        <option value="Free State">Free State</option>
+                        <option value="Gauteng">Gauteng</option>
+                        <option value="KwaZulu-Natal">KwaZulu-Natal</option>
+                        <option value="Limpopo">Limpopo</option>
+                        <option value="Mpumalanga">Mpumalanga</option>
+                        <option value="Northern Cape">Northern Cape</option>
+                        <option value="North West">North West</option>
+                        <option value="Western Cape">Western Cape</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="city">City</label>
+                    <select id="city" name="city" required>
+                        <option value="">-- Select a City --</option>
+                        <!-- Cities will be dynamically populated based on the selected province -->
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="streetAddress">Street Address</label>
+                    <input type="text" id="streetAddress" name="streetAddress" placeholder="Street Address" required>
+                </div>
+
+                <!-- "Continue" Button -->
+                <div class="actions">
+                    <button type="button" id="continueButton" class="btn primary" disabled>Continue</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Service & Verification Section -->
+        <section class="form-island" id="serviceVerificationSection" style="display: none;">
+            <h2>Service & Verification</h2>
+            <form id="verificationForm">
+                <!-- Are you South African? -->
+                <div class="input-group">
+                    <label>Are you South African?</label>
+                    <div class="checkbox-group horizontal">
+                        <label>
+                            <input type="radio" name="southAfrican" value="yes" required> Yes
+                        </label>
+                        <label>
+                            <input type="radio" name="southAfrican" value="no"> No
+                        </label>
+                    </div>
+                    <div class="error-msg" id="countryError">You are not eligible to be a service provider because the service is not available in your country.</div>
+                </div>
+
+                <!-- ID Verification -->
+                <div class="input-group">
+                    <label for="idUpload">Please upload a copy of your valid ID</label>
+                    <input type="file" id="idUpload" name="idUpload" required accept=".png, .jpg, .jpeg, .pdf">
+                    <p class="grey-description">Your ID will be kept safe and is crucial for the safety of both you and the customers.</p>
+                </div>
+                <div class="photo-guide">
+                    <h4>ID Photo Guidelines:</h4>
+                    <div class="guide-images">
+                        <div class="guide-image">
+                            <img src="images/id-example.png" alt="ID document example">
+                            <p>✓ Good example</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <!-- Service Offerings -->
+                <div class="input-group">
+                    <label for="serviceCategory">Which services are you offering?</label>
+                    <select id="serviceCategory" name="serviceCategory" required>
+                        <option value="">-- Select a Service Category --</option>
+                        <option value="Home Services">Home Services</option>
+                        <option value="Personal Services">Personal Services</option>
+                        <option value="Educational Services">Educational Services</option>
+                        <option value="Technology Services">Technology Services</option>
+                        <!-- More categories -->
+                    </select>
+                </div>
+                <div class="input-group" id="specificServiceGroup" style="display:none;">
+                    <label for="specificService">Please select a specific service</label>
+                    <select id="specificService" name="specificService" required>
+                        <!-- Dynamically generated options based on selected category -->
+                    </select>
+                </div>
+
+                <!-- Profile Photo -->
+                <div class="input-group">
+                    <label for="profilePhoto">Please upload a clean and visible photo of yourself</label>
+                    <input type="file" id="profilePhoto" name="profilePhoto" required accept=".png, .jpg, .jpeg">
+                    <p class="grey-description">Upload a high-definition picture of yourself from shoulder to head.</p>
+                    
+                    <!-- New Guide Section -->
+                    <div class="photo-guide">
+                        <h3>Photo Guide Examples:</h3>
+                        <div class="guide-images">
+                            <div class="guide-image">
+                                <img src="images/portrait1.png" alt="Example portrait photo 1">
+                                <p>✓ Good example</p>
+                            </div>
+                            <div class="guide-image">
+                                <img src="images/portrait2.png" alt="Example portrait photo 2">
+                                <p>✓ Good example</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- "Continue" and "Back" Buttons -->
+                <div class="actions">
+                    <button type="button" id="serviceBackButton" class="btn secondary">Back</button>
+                    <button type="button" id="serviceContinueButton" class="btn primary" disabled>Continue</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Additional Information Section -->
+        <section class="form-island" id="additionalInfoSection" style="display: none;">
+            <h2>Additional Information</h2>
+            <form id="additionalInfoForm">
+                <!-- Experience Level -->
+                <div class="input-group">
+                    <label for="experienceYears">How many years of experience do you have in your field?</label>
+                    <select id="experienceYears" name="experienceYears" required>
+                        <option value="">-- Select Years of Experience --</option>
+                        <option value="0-1">0-1 years</option>
+                        <option value="2-3">2-3 years</option>
+                        <option value="4-5">4-5 years</option>
+                        <option value="6-10">6-10 years</option>
+                        <option value="10+">10+ years</option>
+                    </select>
+                </div>
+
+                <!-- Qualifications and Certifications -->
+                <div class="input-group">
+                    <label>Do you have any relevant qualifications or certifications?</label>
+                    <div class="checkbox-group horizontal">
+                        <label><input type="radio" name="hasQualifications" value="yes"> Yes</label>
+                        <label><input type="radio" name="hasQualifications" value="no"> No</label>
+                    </div>
+                </div>
+                <div class="input-group" id="qualificationsGroup" style="display: none;">
+                    <label for="qualifications">Please list your qualifications:</label>
+                    <input type="text" id="qualifications" name="qualifications" placeholder="List your qualifications">
+                </div>
+
+                <!-- Availability -->
+                <div class="input-group">
+                    <label>What days of the week are you available to work?</label>
+                    <div class="checkbox-group vertical">
+                        <label><input type="checkbox" name="availability" value="Monday"> Monday</label>
+                        <label><input type="checkbox" name="availability" value="Tuesday"> Tuesday</label>
+                        <label><input type="checkbox" name="availability" value="Wednesday"> Wednesday</label>
+                        <label><input type="checkbox" name="availability" value="Thursday"> Thursday</label>
+                        <label><input type="checkbox" name="availability" value="Friday"> Friday</label>
+                        <label><input type="checkbox" name="availability" value="Saturday"> Saturday</label>
+                        <label><input type="checkbox" name="availability" value="Sunday"> Sunday</label>
+                    </div>
+                </div>
+
+                <!-- Languages Spoken -->
+                <div class="input-group">
+                    <label>Languages Spoken:</label>
+                    <div class="checkbox-group vertical">
+                        <label><input type="checkbox" name="languages" value="Afrikaans"> Afrikaans</label>
+                        <label><input type="checkbox" name="languages" value="English"> English</label>
+                        <label><input type="checkbox" name="languages" value="isiNdebele"> isiNdebele</label>
+                        <label><input type="checkbox" name="languages" value="isiXhosa"> isiXhosa</label>
+                        <label><input type="checkbox" name="languages" value="isiZulu"> isiZulu</label>
+                        <label><input type="checkbox" name="languages" value="Sesotho"> Sesotho</label>
+                        <label><input type="checkbox" name="languages" value="Setswana"> Setswana</label>
+                        <label><input type="checkbox" name="languages" value="siSwati"> siSwati</label>
+                        <label><input type="checkbox" name="languages" value="Tshivenda"> Tshivenda</label>
+                        <label><input type="checkbox" name="languages" value="Xitsonga"> Xitsonga</label>
+                        <label><input type="checkbox" name="languages" value="Sepedi"> Sepedi</label>
+                    </div>
+                </div>
+
+                <!-- Travel Distance -->
+                <div class="input-group">
+                    <label for="travelDistance">How far are you willing to travel for a job?</label>
+                    <select id="travelDistance" name="travelDistance" required>
+                        <option value="">-- Select Travel Distance --</option>
+                        <option value="5">Up to 5 km</option>
+                        <option value="10">Up to 10 km</option>
+                        <option value="20">Up to 20 km</option>
+                        <option value="50">Up to 50 km</option>
+                        <option value="100">Up to 100 km</option>
+                        <option value="unlimited">Unlimited</option>
+                    </select>
+                </div>
+
+                <!-- "I'm Done" and "Back" Buttons -->
+                <div class="actions">
+                    <button type="button" id="additionalBackButton" class="btn secondary">Back</button>
+                    <button type="button" id="doneButton" class="btn primary" disabled>I'm Done</button>
+                </div>
+            </form>
+        </section>
+
+        <!-- Review Section -->
+        <section class="form-island" id="reviewSection" style="display: none;">
+            <h2>Review Your Information</h2>
+            <div id="reviewContent">
+                <!-- User's information will be dynamically inserted here -->
+            </div>
+            <div class="actions">
+                <button type="button" id="editButton" class="btn secondary">Edit</button>
+                <button type="button" id="submitButton" class="btn primary">Add to My Profile</button>
+            </div>
+        </section>
+    </main>
+
+    <script src="scripts/apply.js"></script>
+</body>
+</html>

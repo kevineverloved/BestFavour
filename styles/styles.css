@@ -1,0 +1,440 @@
+/* Reset default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    overflow-x: hidden;
+    position: relative;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between; /* Distribute space between logo, nav links, and buttons */
+    align-items: center;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+    background-color: rgba(255, 255, 255, 0.9);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 2rem; /* Ensure consistent font size */
+    color: #007BFF; /* Consistent blue color */
+    font-weight: 700; /* Bold font weight */
+    font-family: 'Roboto', sans-serif; /* Ensure consistent font family */
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 40px;
+    justify-content: center; /* Center-align the navigation links */
+    align-items: center;
+    margin: 0 auto; /* Center the nav links in the available space */
+    padding: 0;
+    flex-grow: 1; /* Allow nav links to grow and take available space */
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: #007BFF;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 10px;
+    margin-left: auto; /* Align the buttons to the right */
+}
+
+/* Hero Section */
+@font-face {
+    font-family: 'Bebas Neue';
+    src: url('../fonts/BebasNeue-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.hero {
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    z-index: 2;
+    padding: 20px;
+}
+
+.hero h1 {
+    font-family: 'Roboto', sans-serif; /* Revert to original font */
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    color: #fff;
+    margin-bottom: 30px;
+}
+
+/* Call To Action Buttons */
+.btn {
+    padding: 6px 12px; /* Further decreased padding for smaller buttons */
+    font-size: 0.8rem; /* Further decreased font size */
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn.primary {
+    background-color: #007BFF; /* Ensure consistent blue color */
+    color: #fff;
+}
+
+.btn.primary:hover {
+    background-color: #0056b3;
+}
+
+.btn.secondary {
+    background-color: #6c757d;
+    color: #fff;
+}
+
+.btn.secondary:hover {
+    background-color: #5a6268;
+}
+
+/* Hero Section Button */
+.hero-content .btn {
+    padding: 10px 20px; /* Adjusted padding for the "Get Started" button */
+    font-size: 1rem; /* Adjusted font size */
+}
+
+/* Services Section Button */
+.services .btn {
+    margin-top: 40px; /* Adjust margin for spacing */
+    display: inline-block;
+}
+
+/* Slideshow Styles */
+.slideshow-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.mySlides {
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transition: opacity 1s ease-in-out;
+}
+
+.mySlides.active {
+    display: block;
+    opacity: 1;
+    z-index: 2;
+}
+
+.mySlides.fade-out {
+    opacity: 0;
+    z-index: 1;
+}
+
+.mySlides img {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    filter: brightness(0.5);
+}
+
+/* Fade Animation */
+@keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Navigation Dots */
+.dot-container {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #007BFF;
+}
+
+/* Services Section */
+.services {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.services h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    color: #007BFF; /* Consistent blue color */
+}
+
+.service-cards {
+    display: flex;
+    justify-content: center; /* Center the service cards */
+    gap: 20px; /* Adjust gap between cards */
+    flex-wrap: wrap; /* Allow wrapping for smaller screens */
+}
+
+.service-card {
+    flex: 0 0 200px; /* Set a fixed width for cards */
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s;
+}
+
+.service-card img {
+    width: 100%;
+    height: 150px; /* Adjust height for consistency */
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    font-size: 1.5rem;
+    color: #007BFF; /* Consistent blue color */
+    margin-bottom: 10px;
+}
+
+.service-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #333;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+}
+
+.service-card a {
+    text-decoration: none;
+}
+
+/* How It Works Section */
+.how-it-works {
+    padding: 80px 20px;
+    text-align: center;
+    background-color: #f9f9f9;
+}
+
+.how-it-works h2 {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.steps {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.step {
+    max-width: 300px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.step img {
+    width: 60px;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer .social-media {
+    margin-bottom: 20px;
+}
+
+.footer .social-media a {
+    margin: 0 10px;
+}
+
+.footer .social-media img {
+    width: 30px;
+    transition: transform 0.3s;
+}
+
+.footer .social-media a:hover img {
+    transform: scale(1.1);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 10px;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+/* Removed Custom Font Face as it's no longer needed */
+/* 
+@font-face {
+    font-family: 'CustomHeroFont';
+    src: url('/mnt/data/font3.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*/
+
+/* Specific adjustments for the CTA buttons in the navbar */
+.cta-buttons .btn {
+    padding: 4px 10px; /* Decreased padding for the navbar buttons */
+    font-size: 0.75rem; /* Decreased font size for the navbar buttons */
+}
+
+/* Hamburger Menu Styles */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #333;
+    margin: 4px 0;
+    transition: 0.4s;
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        background-color: #fff;
+        width: 100%;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .cta-buttons {
+        display: none;
+    }
+}
+
+/* Hero Text Styles */
+.hero-content h1 {
+    font-size: 2.5rem; /* Default size for larger screens */
+}
+
+.hero-content p {
+    font-size: 1.25rem; /* Default size for larger screens */
+}
+
+/* Responsive Hero Text Styles */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 1.75rem; /* Smaller size for mobile screens */
+    }
+
+    .hero-content p {
+        font-size: 1rem; /* Smaller size for mobile screens */
+    }
+}
+
+/* Logo Styling */
+.logo {
+    font-size: 2rem; /* Ensure consistent font size */
+    color: #007BFF; /* Consistent blue color */
+    font-weight: 700; /* Bold font weight */
+    font-family: 'Roboto', sans-serif; /* Ensure consistent font family */
+}
+
+/* About Logo Styling */
+.about-logo {
+    font-size: 2rem; /* Example font size */
+    color: #007BFF; /* Updated to match the logo color */
+    font-weight: 700; /* Ensure consistent font weight */
+    font-family: 'Roboto', sans-serif; /* Ensure consistent font family */
+    /* Add any other styles used on the "About Us" page */
+}

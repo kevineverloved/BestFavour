@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Services Form</title>
+    <link rel="stylesheet" href="styles/my_services.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Progress Indicator -->
+    <div class="progress-indicator-container">
+        <div class="progress-indicator">Step 1 of 5</div>
+    </div>
+
+    <!-- Back Button - Top Left of Webpage -->
+    <nav class="back-button">
+        <a href="index.html" class="arrow-circle" aria-label="Back to Home">
+            <span>←</span>
+        </a>
+    </nav>
+
+    <form class="services-form">
+        <!-- Personal Information Section -->
+        <div class="form-section" id="personal-info">
+            <h3>Personal Information</h3>
+            <label for="full-name">What is your legal full name?</label>
+            <input type="text" id="full-name" name="full-name" placeholder="e.g., John Doe" required>
+
+            <label for="email">What is your email address?</label>
+            <input type="email" id="email" name="email" placeholder="e.g., johndoe@example.com" required>
+
+            <label for="phone">What is your mobile phone number?</label>
+            <input type="tel" id="phone" name="phone" placeholder="e.g., +1234567890" required>
+
+            <button type="button" class="btn next" onclick="nextSection()">Next</button>
+        </div>
+
+        <!-- Job Status Section -->
+        <div class="form-section" id="job-status-section" data-dependent="job-status-section" data-show-value="yes" style="display: none;">
+            <h3>Employment Status</h3>
+            <label for="job-status">Do you currently have a job?</label>
+            <select id="job-status" name="job-status" required>
+                <option value="">Select...</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <button type="button" class="btn prev" onclick="prevSection()">Previous</button>
+            <button type="button" class="btn next" onclick="nextSection()">Next</button>
+        </div>
+
+        <!-- Job Information Section (Conditional) -->
+        <div class="form-section conditional-section" id="job-info-section" data-dependent="job-status" data-show-value="yes" style="display: none;">
+            <h3>Job Information</h3>
+            <label for="job-title">What is your job title?</label>
+            <input type="text" id="job-title" name="job-title" placeholder="e.g., Software Developer">
+
+            <label for="company">What company do you work for?</label>
+            <input type="text" id="company" name="company" placeholder="e.g., Tech Corp">
+
+            <button type="button" class="btn prev" onclick="prevSection()">Previous</button>
+            <button type="button" class="btn next" onclick="nextSection()">Next</button>
+        </div>
+
+        <!-- Unemployed Section (Conditional) -->
+        <div class="form-section conditional-section" id="unemployed-section" data-dependent="job-status" data-show-value="no" style="display: none;">
+            <h3>Unemployment Details</h3>
+            <label for="unemployed-duration">How long have you been unemployed?</label>
+            <input type="text" id="unemployed-duration" name="unemployed-duration" placeholder="e.g., 6 months">
+
+            <label for="job-search">Are you currently looking for a job?</label>
+            <select id="job-search" name="job-search" required>
+                <option value="">Select...</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <button type="button" class="btn prev" onclick="prevSection()">Previous</button>
+            <button type="button" class="btn next" onclick="nextSection()">Next</button>
+        </div>
+
+        <!-- Address Details Section -->
+        <div class="form-section" id="address-details" style="display: none;">
+            <h3>Address Details</h3>
+            <label for="address">What is your residential address?</label>
+            <input type="text" id="address" name="address" placeholder="e.g., 123 Main St, Springfield" required>
+
+            <label for="service-areas-address">Which cities or areas do you serve?</label>
+            <input type="text" id="service-areas-address" name="service-areas-address" placeholder="e.g., Springfield, Shelbyville" required>
+
+            <button type="button" class="btn prev" onclick="prevSection()">Previous</button>
+            <button type="button" class="btn next" onclick="nextSection()">Next</button>
+        </div>
+
+        <!-- Identification Verification Section -->
+        <div class="form-section" id="identification-verification" style="display: none;">
+            <h3>Identification Verification</h3>
+            <label for="id-upload">Please upload a copy of your valid ID (e.g., South African ID, passport, driver's license).</label>
+            <input type="file" id="id-upload" name="id-upload" required>
+
+            <label for="background-check">Are you willing to undergo a background check for verification purposes?</label>
+            <select id="background-check" name="background-check" required>
+                <option value="">Select...</option>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <button type="button" class="btn prev" onclick="prevSection()">Previous</button>
+            <button type="button" class="btn next" onclick="nextSection()">Next</button>
+        </div>
+
+        <!-- Professional Information Section -->
+        <div class="form-section" id="professional-info" style="display: none;">
+            <h3>Professional Information</h3>
+            <label for="services-offered">Which services are you offering? (Please select all that apply from our service categories.)</label>
+            <select id="services-offered" name="services-offered" multiple required>
+                <option value="cleaning">Cleaning</option>
+                <option value="plumbing">Plumbing</option>
+                <option value="electrical">Electrical</option>
+                <option value="landscaping">Landscaping</option>
+                <option value="painting">Painting</option>
+                <option value="carpentry">Carpentry</option>
+                <option value="moving">Moving</option>
+                <option value="pest-control">Pest Control</option>
+                <option value="hvac">HVAC</option>
+                <option value="roofing">Roofing</option>
+                <!-- Add more categories as needed -->
+            </select>
+
+            <label for="qualifications">Do you have any relevant qualifications or certifications?</label>
+            <input type="text" id="qualifications" name="qualifications" placeholder="e.g., Certified Electrician" required>
+
+            <label for="certificates-upload">Please upload copies of your certificates or licenses.</label>
+            <input type="file" id="certificates-upload" name="certificates-upload" multiple>
+
+            <label for="experience">How many years of experience do you have in your field?</label>
+            <input type="number" id="experience" name="experience" placeholder="e.g., 5" required>
+
+            <label for="previous-work">Please provide details of your previous work or projects.</label>
+            <textarea id="previous-work" name="previous-work" placeholder="e.g., Project details" required></textarea>
+
+            <button type="button" class="btn prev" onclick="prevSection()">Previous</button>
+            <button type="button" class="btn next" onclick="nextSection()">Next</button>
+        </div>
+
+        <!-- Submit Section -->
+        <div class="form-section" id="submit-section" style="display: none;">
+            <h3>Review and Submit</h3>
+            <p>Please review your information before submitting.</p>
+            <button type="button" class="btn prev" onclick="prevSection()">Previous</button>
+            <button type="submit" class="btn primary">Submit</button>
+        </div>
+    </form>
+
+    <script src="scripts/my_services.js"></script>
+</body>
+</html>

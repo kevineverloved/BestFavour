@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Provider Profile</title>
+    <link rel="stylesheet" href="styles/profile.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">Best Favour</div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about_us.html">About Us</a></li>
+            <li><a href="t&c.html">Terms & Conditions</a></li>
+            <li><a href="privacy_policy.html">Privacy Policy</a></li>
+            <li><a href="contact_us.html">Contact Us</a></li>
+        </ul>
+    </nav>
+
+    <div class="profile-layout">
+        <!-- Left Column -->
+        <div class="left-column">
+            <!-- Profile Image and Basic Info -->
+            <div class="profile-card">
+                <div class="profile-header">
+                    <img src="images/default-profile.jpg" alt="Profile Picture" class="profile-image">
+                    <h2 class="profile-name">Service Provider Name</h2>
+                    <p id="bioDisplay" class="bio">No bio available.</p> <!-- Bio section -->
+                </div>
+                <button id="showMoreBtn" class="btn primary">Show More</button> <!-- Show More button -->
+                <div id="additionalInfo" class="hidden"> <!-- Additional info section -->
+                    <!-- User Groups/Tags -->
+                    <div class="user-tags">
+                        <span class="tag active">Active</span>
+                        <span class="tag verified">Verified</span>
+                    </div>
+                    <!-- Basic Information -->
+                    <div class="info-section">
+                        <div class="info-item">
+                            <label>First Name:</label>
+                            <span data-field="firstName"></span>
+                        </div>
+                        <div class="info-item">
+                            <label>Last Name:</label>
+                            <span data-field="surname"></span>
+                        </div>
+                        <div class="info-item">
+                            <label>Phone Number:</label>
+                            <span data-field="phoneNumber"></span>
+                        </div>
+                        <div class="info-item">
+                            <label>Province:</label>
+                            <span data-field="province"></span>
+                        </div>
+                        <div class="info-item">
+                            <label>City:</label>
+                            <span data-field="city"></span>
+                        </div>
+                        <div class="info-item">
+                            <label>Street Address:</label>
+                            <span data-field="streetAddress"></span>
+                        </div>
+                        <div class="info-item">
+                            <label>Experience Years:</label>
+                            <span data-field="experienceYears"></span>
+                        </div>
+                        <div class="info-item">
+                            <label>Qualifications:</label>
+                            <span data-field="qualifications"></span>
+                        </div>
+                        <div class="info-item">
+                            <label>Languages:</label>
+                            <span data-field="languages"></span>
+                        </div>
+                        <div class="info-item">
+                            <label>Availability:</label>
+                            <span data-field="availability"></span>
+                        </div>
+                        <div class="info-item">
+                            <label>Travel Distance:</label>
+                            <span data-field="travelDistance"></span>
+                        </div>
+                        <div class="info-item">
+                            <label>Service Category:</label>
+                            <span data-field="serviceCategory"></span>
+                        </div>
+                        <div class="info-item">
+                            <label>Specific Service:</label>
+                            <span data-field="specificService"></span>
+                        </div>
+                    </div>
+                    <!-- Location Information -->
+                    <div class="location-section">
+                        <h3>Location</h3>
+                        <div class="info-item">
+                            <label>Country:</label>
+                            <span>South Africa</span>
+                        </div>
+                        <!-- You can add more location details if needed -->
+                    </div>
+                    <!-- Edit Profile Button -->
+                    <button id="editProfileBtn" class="btn primary">Edit Profile</button>
+                    <!-- Additional Information Form (hidden by default) -->
+                    <div id="additionalInfoForm" class="hidden">
+                        <h3>Additional Information</h3>
+                        <div class="input-group">
+                            <label for="bio">Bio</label>
+                            <textarea id="bio" name="bio" rows="4" placeholder="Tell customers about yourself..."></textarea>
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="paymentDetails">Payment Details</label>
+                            <input type="text" id="paymentDetails" name="paymentDetails" placeholder="Bank Account/PayPal/etc">
+                        </div>
+                        
+                        <div class="input-group">
+                            <label for="portfolioImages">Add Portfolio Images</label>
+                            <input type="file" id="portfolioImages" name="portfolioImages" multiple accept="image/*">
+                            <div id="portfolioPreview" class="portfolio-preview"></div>
+                        </div>
+                        
+                        <button type="button" id="saveAdditionalInfo" class="btn primary">Save Changes</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="right-column">
+            <!-- Activity Section -->
+            <div class="section-card">
+                <h3>Activity</h3>
+                <div class="activity-list">
+                    <!-- Dynamically populate activity items if applicable -->
+                    <p>No recent activity.</p>
+                </div>
+            </div>
+
+            <!-- Reviews Section -->
+            <div class="section-card">
+                <h3>Customer Reviews</h3>
+                <div class="reviews-list" id="reviewsContent">
+                    <!-- Dynamically populate reviews here -->
+                    <p>No reviews yet.</p>
+                </div>
+            </div>
+
+            <!-- Services Section -->
+            <div class="section-card">
+                <h3>Services Offered</h3>
+                <div class="services-list">
+                    <p data-field="serviceCategory"></p>
+                    <p data-field="specificService"></p>
+                </div>
+            </div>
+
+            <!-- Portfolio Section -->
+            <div class="section-card">
+                <h3>Portfolio</h3>
+                <div id="portfolioGallery" class="portfolio-gallery">
+                    <!-- Portfolio images will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/profile.js"></script>
+</body>
+</html>
